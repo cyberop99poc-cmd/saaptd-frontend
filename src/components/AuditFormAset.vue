@@ -439,7 +439,12 @@ interface AuditItem {
 interface AuditScore {
   [key: string]: number | null
 }
-
+  
+//PEMBETULAN
+const setScore = (key: string, score: number) => {
+  auditScores.value[key] = score
+  saveScoresDraft()
+}
 const auditScores = ref<AuditScore>({})
 
 interface PenemuanForm {
@@ -569,28 +574,33 @@ const saveScoresDraft = () => {
   }
 }
 
-const handleManualSave = async () => {
+  //PEMBETULAN
+const submitAudit = async () => {
   if (!auditorName.value) {
     showToast('Sila masukkan nama juruaudit', 'error')
     return
   }
 
-  saveScoresDraft()
+  if (Object.keys(auditScores.value).length === 0) {
+    showToast('Tiada markah untuk dihantar', 'error')
+    return
+  }
 
   try {
-    await sync.prepareAudit({
-      NamaPenilai: auditorName.value,
-      NoPenilaian: auditId.value,
-      Tarikh: auditDate.value,
-      JenisPenilaian: {
-        JenisPenilaianID: penilaianTypeId,
-        JenisPenilaianName: ""
-      }
-    })
-    showToast('Sesi audit berjaya disimpan ke pangkalan data', 'success')
+    const payload = {
+      auditId: auditId.value,
+      scores: Object.entries(auditScores.value).map(([key, value]) => ({
+        itemKey: key,
+        score: value
+      }))
+    }
+
+    await sync.pushScores(currentPhase.value, payload)
+
+    showToast('Markah berjaya dihantar ke pangkalan data', 'success')
   } catch (err: any) {
-    console.error('Manual save failed:', err)
-    showToast(err.message || 'Gagal menyimpan ke pangkalan data', 'error')
+    console.error(err)
+    showToast(err.message || 'Gagal menyimpan markah ke pangkalan data', 'error')
   }
 }
 
