@@ -600,7 +600,7 @@ const submitAudit = async () => {
     showToast('Markah berjaya dihantar ke pangkalan data', 'success')
   } catch (err: any) {
     console.error(err)
-    showToast(err.message || 'Gagal menyimpan markah ke pangkalan data', 'error')
+    showToast(err.message || 'Gagal LAGI menyimpan markah ke pangkalan data', 'error')
   }
 }
 
