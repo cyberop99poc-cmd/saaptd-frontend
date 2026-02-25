@@ -39,6 +39,8 @@ export function useSync() {
 
   const submitItem = (payload: SubmitItemPayload) => submitAuditItem(payload)
 
+  const pushScores = async (phase: string, data: any) => {return await api.post('/audit/scores', data)}
+
   // ── Findings ────────────────────────────────────────────────
 
   const getFindings_ = () => getFindings()
