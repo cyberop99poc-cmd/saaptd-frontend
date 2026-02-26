@@ -441,10 +441,10 @@ interface AuditScore {
 }
   
 //PEMBETULAN
-const setScore = (key: string, score: number) => {
-  auditScores.value[key] = score
-  saveScoresDraft()
-}
+// const setScore = (key: string, score: number) => {
+//   auditScores.value[key] = score
+//   saveScoresDraft()
+// }
 const auditScores = ref<AuditScore>({})
 
 interface PenemuanForm {
