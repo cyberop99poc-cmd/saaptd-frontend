@@ -25,7 +25,7 @@
             </svg>
           </div>
           <h1 class="text-3xl font-bold text-white">SAAPTD</h1>
-          <p class="text-red-100 text-sm mt-2">Sistem Automasi Audit Pengurusan Tentera Darat</p>
+          <p class="text-red-100 text-sm mt-2">SSSSSistem Automasi Audit Pengurusan Tentera Darat</p>
           <p class="text-red-200 text-xs mt-1 font-medium">
             {{ isLogin ? 'Log Masuk Sistem' : 'Daftar Akaun Baharu' }}
           </p>
