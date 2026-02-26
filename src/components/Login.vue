@@ -16,6 +16,9 @@
         <div class="bg-gradient-to-r from-red-600 to-red-700 px-8 py-8 text-center">
           <div
             class="w-16 h-16 rounded-full bg-white/20 backdrop-blur flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <div class="flex items-center gap-3">
+          <img src="/td-logo.png" alt="TD Logo" class="h-[70px] w-auto object-contain">
+          <div>
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
